@@ -7,4 +7,3 @@ $(document).ready(function() {
   });
 });
 
-// https://api.twitter.com/1.1/search/tweets.json?q=touch&src=typd
