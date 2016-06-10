@@ -1,4 +1,6 @@
 var TwitterPackage = require('twitter');
+fs = require('fs');
+
 
 var secret = {
   consumer_key: '3G2sYnahS3vZilSdKzyWmLtou',
@@ -8,26 +10,33 @@ var secret = {
 }
 var Twitter = new TwitterPackage(secret);
 
-// Twitter.get('statuses', function(error, tweets, response) {
-//   if (error) throw error;
-//   console.log(tweets);
-// });
 
-// https://api.twitter.com/1.1/search/tweets.json?q=touch&src=typd&lang=en-gb
-
-// Twitter.get('favorites/list', function(error, tweets, response){
-//   if(error) throw error;
-//   var tweet = (tweets[0].text);  // The favorites.
-//   // console.log(response);  // Raw response object.
-// });
+    var tweets = []
+var url ='http://requestb.in/yvq9cnyv'
 
 
 Twitter.stream('statuses/filter', {track: 'touch'},  function(stream) {
   stream.on('data', function(tweet) {
+
+    fs.writeFile('helloworld.txt', tweet.text, function (err) {
+      if (err) return console.log(err);
+      console.log('Hello World > helloworld.txt');
+    });
+
+
+
     console.log(tweet.text);
+    stream.destroy();
   });
 
   stream.on('error', function(error) {
     console.log(error);
   });
 });
+
+function wtf(){
+  return "HELLO"
+};
+
+
+
