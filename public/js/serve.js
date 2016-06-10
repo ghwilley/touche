@@ -18,7 +18,7 @@ var url ='http://requestb.in/yvq9cnyv'
 Twitter.stream('statuses/filter', {track: 'touch'},  function(stream) {
   stream.on('data', function(tweet) {
 
-    fs.appendFile('helloworld.txt', tweet.text + '\r\n', function (err) {
+    fs.appendFile('public/helloworld.txt', tweet.text + '\r\n', function (err) {
       if (err) return console.log(err);
       console.log('COOL');
     });
