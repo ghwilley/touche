@@ -7,10 +7,9 @@ $(document).ready(function() {
 	$(html).hide().appendTo(".centered").fadeIn(3000).fadeOut(3000)
 	// delay(5000);
 	// window.setTimeout(function(){
- //      $(html).remove();   
+ //      $(html).remove();
  //                  }, 600);
 
   });
 });
 
-// https://api.twitter.com/1.1/search/tweets.json?q=touch&src=typd
